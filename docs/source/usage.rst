@@ -1,8 +1,8 @@
-2.	SCIV usage
+1.	SCIV usage
 =========================
 
 
-2.1 Install
+1.1 Install
 -------------------------
 
 .. code-block:: shell
@@ -12,7 +12,7 @@
     pip install sciv
 
 
-2.2 Run SCIV
+1.2 Run SCIV
 -------------------------
 
  | Run the code

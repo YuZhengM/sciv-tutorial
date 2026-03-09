@@ -3,7 +3,7 @@ Welcome to SCIV's documentation!
 
 Unveiling the pivotal cell types involved in variant function regulation at a single-cell resolution.
 
-.. image:: docs/source/img/overview.png
+.. image:: img/overview.png
 
 .. raw:: html
 
