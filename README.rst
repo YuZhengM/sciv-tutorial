@@ -1,9 +1,8 @@
-Template for the Read the Docs tutorial
-=======================================
+User Manual for SCIV algorithm
+===============================
 
-This GitHub template includes fictional Python library
-with some basic Sphinx docs.
+ | SCIV tutorial: https://sciv.readthedocs.io/en/latest/
 
-Read the tutorial here:
+Unveiling the pivotal cell types involved in variant function regulation at a single-cell resolution.
 
-https://docs.readthedocs.io/en/stable/tutorial/
+.. image:: docs/source/img/overview.png

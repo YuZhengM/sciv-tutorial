@@ -1,34 +1,54 @@
-Usage
-=====
+2.	SCIV usage
+=========================
 
-.. _installation:
 
-Installation
-------------
+2.1 Install
+-------------------------
 
-To use Lumache, first install it using pip:
+.. code-block:: shell
 
-.. code-block:: console
+    conda create --name sciv python=3.10
+    conda activate sciv
+    pip install sciv
 
-   (.venv) $ pip install lumache
 
-Creating recipes
-----------------
+2.2 Run SCIV
+-------------------------
 
-To retrieve a list of random ingredients,
-you can use the ``lumache.get_random_ingredients()`` function:
+ | Run the code
 
-.. autofunction:: lumache.get_random_ingredients
+.. code-block:: python
 
-The ``kind`` parameter should be either ``"meat"``, ``"fish"``,
-or ``"veggies"``. Otherwise, :py:func:`lumache.get_random_ingredients`
-will raise an exception.
+    # -*- coding: UTF-8 -*-
 
-.. autoexception:: lumache.InvalidKindError
+    import os.path
+    import sciv
 
-For example:
+    if __name__ == '__main__':
 
->>> import lumache
->>> lumache.get_random_ingredients()
-['shells', 'gorgonzola', 'parsley']
+        # base path
+        base_path: str = "/project/sciv"
 
+        # path
+        save_path = f"{base_path}/result/GSE139369_ELM_sim/data"
+
+        # scATAC-seq data
+        sc_atac_file = f"{base_path}/input/scATAC/GSE139369_ELM_sim/GSE139369_ELM_sim.h5ad"
+        sc_atac = sciv.fl.read_h5ad(file=sc_atac_file)
+
+        # read variant information
+        variant_base_path: str = f"{base_path}/input/variant/GSE139369_ELM_sim/hg19"
+        variant_column_map: dict = {0: "chr", 1: "position", 3: "rsId", 4: "pp"}
+        variants, trait_info = sciv.fl.read_variants(variant_base_path, column_map=variant_column_map)
+
+        # run
+        trs = sciv.ml.core(
+            adata=sc_atac,
+            variants=variants,
+            trait_info=trait_info,
+            save_path=save_path,
+            model_dir=os.path.join(save_path, "poisson_vi"),
+            is_simple=False,
+            is_ablation=True,
+            is_file_exist_loading=True
+        )

@@ -1,22 +1,19 @@
-Welcome to Lumache's documentation!
-===================================
+Welcome to SCIV's documentation!
+==================================
 
-**Lumache** (/lu'make/) is a Python library for cooks and food lovers
-that creates recipes mixing random ingredients.
-It pulls data from the `Open Food Facts database <https://world.openfoodfacts.org/>`_
-and offers a *simple* and *intuitive* API.
+Unveiling the pivotal cell types involved in variant function regulation at a single-cell resolution.
 
-Check out the :doc:`usage` section for further information, including
-how to :ref:`installation` the project.
+.. image:: docs/source/img/overview.png
 
-.. note::
+.. raw:: html
 
-   This project is under active development.
+    <a href="https://clustrmaps.com/site/1c9ei"  title="ClustrMaps" style="display: none;"><img src="//www.clustrmaps.com/map_v2.png?d=aQAt-RV-2_RLPgZUFoRX6nlcHrur_U5okGQNxp1yqA4&cl=ffffff" /></a>
 
 Contents
 --------
 
 .. toctree::
+    :maxdepth: 3
 
    usage
    api
