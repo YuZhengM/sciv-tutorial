@@ -9,7 +9,7 @@
 
     conda create --name sciv python=3.10
     conda activate sciv
-    pip install sciv
+    pip install sciv==0.0.111
 
 
 1.2 Run SCIV
@@ -48,6 +48,10 @@
             trait_info=trait_info,
             save_path=save_path,
             model_dir=os.path.join(save_path, "poisson_vi"),
+            k=30,
+            or_k=1,
+            weight=0.1,
+            kernel="laplacian",
             is_simple=False,
             is_ablation=True,
             is_file_exist_loading=True
