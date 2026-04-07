@@ -1,7 +1,9 @@
 Welcome to SCIV's documentation!
 ==================================
 
-Unveiling the pivotal cell types involved in variant function regulation at a single-cell resolution.
+SCIV: Unveiling the pivotal cell types involved in variant function regulation at a single-cell resolution.
+
+We propose SCIV, a method integrating cell cluster-type correction with a weighted seed-based random walk. By eliminating substantial noise from seed cells, SCIV enables the efficient enrichment of causal mutations within cells of interest.
 
 .. image:: img/overview.png
 
