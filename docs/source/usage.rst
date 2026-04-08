@@ -15,10 +15,10 @@
 1.2 SCIV execution process
 ^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-1.2.1 下载 scATAC-seq 示例数据
+1.2.1 Download scATAC seq sample data
 ****************************
 
-下载 PBMC 案例文件： `GSM6793454_sc_atac_snapATAC2.h5ad <https://bio.liclab.net/scvmap_static/download/scatac/GSM6793454_sc_atac_snapATAC2.h5ad>`_
+Download PBMC case file： `GSM6793454_sc_atac_snapATAC2.h5ad <https://bio.liclab.net/scvmap_static/download/scatac/GSM6793454_sc_atac_snapATAC2.h5ad>`_
 
 .. code-block:: shell
 
@@ -26,33 +26,33 @@
     cd /project/sciv/input/scATAC/GSM6793454
     wget https://bio.liclab.net/scvmap_static/download/scatac/GSM6793454_sc_atac_snapATAC2.h5ad
 
-1.2.2 下载性状示例数据
+1.2.2 Download trait example data
 ****************************
 
-下载有关单核细胞，B 细胞，CD4+和CD8+ T 细胞的 fine-mapping 结果
+Download the fine mapping results for monocytes, B cells, CD4+ and CD8+ T cells
 
 .. code-block:: shell
 
     mkdir -p /project/sciv/input/trait/GSM6793454
     cd /project/sciv/input/trait/GSM6793454
     wget https://bio.liclab.net/scvmap_static/sciv/download_example_traits.sh
-    chmod 777 download_example_traits.sh
+    chmod +x download_example_traits.sh
     sh download_example_traits.sh
     rm -rf download_example_traits.sh
 
 
-1.2.3 运行 SCIV
+1.2.3 Run SCIV
 ****************************
 
-创建 python 文件
+Create Python file
 
-.. code-block:: python
+.. code-block:: shell
 
     mkdir -p /project/sciv/code/GSM6793454/
     cd /project/sciv/code/GSM6793454/
     touch sciv_pbmc.py
 
-文件内容如下
+The file content is as follows
 
 .. code-block:: python
 
@@ -67,14 +67,14 @@
         base_path: str = "/project/sciv"
 
         # path
-        save_path = f"{base_path}/result/GSE139369_ELM_sim/data"
+        save_path: str = f"{base_path}/result/GSM6793454/data"
 
         # scATAC-seq data
-        sc_atac_file = f"{base_path}/input/scATAC/GSE139369_ELM_sim/GSE139369_ELM_sim.h5ad"
+        sc_atac_file = f"{base_path}/input/scATAC/GSM6793454/GSM6793454_sc_atac_snapATAC2.h5ad"
         sc_atac = sciv.fl.read_h5ad(file=sc_atac_file)
 
         # read variant information
-        variant_base_path: str = f"{base_path}/input/trait/GSE139369_ELM_sim/hg19"
+        variant_base_path: str = f"{base_path}/input/trait/GSM6793454/hg19"
         variant_column_map: dict = {0: "chr", 1: "position", 3: "rsId", 4: "pp"}
         variants, trait_info = sciv.fl.read_variants(variant_base_path, column_map=variant_column_map)
 
@@ -90,8 +90,14 @@
 
         print(trs)
 
-执行文件
+Executable the file
 
-.. code-block:: python
+.. code-block:: shell
+
+    python3 sciv_pbmc.py
+
+The output log information is as follows
+
+.. code-block:: shell
 
     python3 sciv_pbmc.py
