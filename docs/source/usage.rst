@@ -3,7 +3,7 @@
 
 
 1.1 Install
--------------------------
+^^^^^^^^^^^^^^^^^^^^^^^^^
 
 .. code-block:: shell
 
@@ -13,11 +13,12 @@
 
 
 1.2 SCIV execution process
--------------------------
+^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-1. 下载 scATAC-seq 示例数据
+1.2.1 下载 scATAC-seq 示例数据
+****************************
 
-> 下载 PBMC 案例文件： `GSM6793454_sc_atac_snapATAC2.h5ad <https://bio.liclab.net/scvmap_static/download/scatac/GSM6793454_sc_atac_snapATAC2.h5ad>`_
+下载 PBMC 案例文件： `GSM6793454_sc_atac_snapATAC2.h5ad <https://bio.liclab.net/scvmap_static/download/scatac/GSM6793454_sc_atac_snapATAC2.h5ad>`_
 
 .. code-block:: shell
 
@@ -25,7 +26,10 @@
     cd /project/sciv/input/scATAC/GSM6793454
     wget https://bio.liclab.net/scvmap_static/download/scatac/GSM6793454_sc_atac_snapATAC2.h5ad
 
-2. 下载性状示例数据
+1.2.2 下载性状示例数据
+****************************
+
+下载有关单核细胞，B 细胞，CD4+和CD8+ T 细胞的 fine-mapping 结果
 
 .. code-block:: shell
 
@@ -37,9 +41,10 @@
     rm -rf download_example_traits.sh
 
 
-3. 运行 SCIV
+1.2.3 运行 SCIV
+****************************
 
- | 创建 python 文件
+创建 python 文件
 
 .. code-block:: python
 
@@ -47,7 +52,7 @@
     cd /project/sciv/code/GSM6793454/
     touch sciv_pbmc.py
 
- | 文件内容如下
+文件内容如下
 
 .. code-block:: python
 
@@ -85,7 +90,7 @@
 
         print(trs)
 
- | 执行文件
+执行文件
 
 .. code-block:: python
 
